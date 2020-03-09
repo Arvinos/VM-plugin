@@ -1,6 +1,7 @@
 package Interface;
 
 import com.intellij.openapi.ui.DialogWrapper;
+import com.intellij.openapi.ui.ComboBox;
 
 import javax.annotation.Nullable;
 import javax.swing.*;
@@ -18,14 +19,46 @@ public class PluginConfigDialog extends DialogWrapper
     @Override
     protected JComponent createCenterPanel()
     {
-        JPanel dialogPanel = new JPanel(new BorderLayout());
+        JPanel pluginSettingsPanel = new JPanel(new BorderLayout());
 
-        JLabel label = new JLabel("Run image under VM?");
+        pluginSettingsPanel.add(getMachineSettingPanel(), BorderLayout.NORTH);
+        pluginSettingsPanel.add(getBinaryImagePanel(), BorderLayout.CENTER);
+        pluginSettingsPanel.add(getCommandLineArgumentsPanel(), BorderLayout.SOUTH);
 
-        label.setPreferredSize(new Dimension(200, 50));
-        dialogPanel.add(label, BorderLayout.CENTER);
+        return pluginSettingsPanel;
+    }
 
-        return dialogPanel;
+    private JPanel getMachineSettingPanel()
+    {
+        JPanel panel = new JPanel(new GridLayout());
+        JLabel label = new JLabel("Virtual machine type:");
+        ComboBox<String> machines = new ComboBox<>();
+
+        // Set Label Properties
+        panel.setPreferredSize(new Dimension(400, 35));
+        //machines.setPreferredSize(new Dimension(200, 35));
+        //label.setPreferredSize(new Dimension(200, 35));
+
+        // Init machines list
+        machines.addItem("i386");
+        machines.addItem("arm");
+        machines.addItem("amd");
+
+        // Add UI onto panel
+        panel.add(label);
+        panel.add(machines);
+
+        return panel;
+    }
+
+    private JPanel getBinaryImagePanel()
+    {
+        return new JPanel(new GridLayout()) ;
+    }
+
+    private JPanel getCommandLineArgumentsPanel()
+    {
+        return new JPanel(new BorderLayout());
     }
 
     public PluginSettings showAndGetSettings()
