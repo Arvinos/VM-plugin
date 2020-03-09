@@ -1,0 +1,37 @@
+<idea-plugin>
+  <id>com.your.company.unique.plugin.id</id>
+  <name>Actions.RunVirtualMachineAction</name>
+  <version>0.0</version>
+  <vendor email="arv.infinity@gmail.com"
+          url="https://github.com/Arvinos">Arvinos</vendor>
+
+  <description>Enter short description for your plugin here</description>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="173.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <depends>com.intellij.modules.lang</depends>
+  <depends>com.intellij.modules.platform</depends>
+
+  <actions>
+    <action id="Run Under VM"
+            class="Actions.RunVirtualMachineAction"
+            text="Run Image with VM"
+            description="Run binary image under VM"
+            icon="AllIcons.Actions.Execute">
+      <add-to-group group-id="ToolbarRunGroup" anchor="first"/>
+    </action>
+    <action id="VM Config"
+            class="Actions.VMComboBoxAction"
+            text="VM Config"
+            description="Edit VM configuration">
+      <add-to-group group-id="ToolbarRunGroup" anchor="first"/>
+    </action>
+  </actions>
+</idea-plugin>
