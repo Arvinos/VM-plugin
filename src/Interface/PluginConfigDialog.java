@@ -6,9 +6,9 @@ import javax.annotation.Nullable;
 import javax.swing.*;
 import java.awt.*;
 
-public class ConfigDialog extends DialogWrapper
+public class PluginConfigDialog extends DialogWrapper
 {
-    public ConfigDialog() {
+    public PluginConfigDialog() {
         super(true); // use current window as parent
         init();
         setTitle("VM Config");
@@ -26,5 +26,12 @@ public class ConfigDialog extends DialogWrapper
         dialogPanel.add(label, BorderLayout.CENTER);
 
         return dialogPanel;
+    }
+
+    public PluginSettings showAndGetSettings()
+    {
+        this.showAndGet();
+
+        return new PluginSettings();
     }
 }

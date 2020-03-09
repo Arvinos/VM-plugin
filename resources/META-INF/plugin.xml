@@ -28,9 +28,10 @@
       <add-to-group group-id="ToolbarRunGroup" anchor="first"/>
     </action>
     <action id="VM Config"
-            class="Actions.VMComboBoxAction"
+            class="Actions.PluginConfigAction"
             text="VM Config"
-            description="Edit VM configuration">
+            description="Edit VM configuration"
+            icon="AllIcons.General.Settings">
       <add-to-group group-id="ToolbarRunGroup" anchor="first"/>
     </action>
   </actions>
