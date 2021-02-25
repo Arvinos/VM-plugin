@@ -47,7 +47,7 @@ public class VirtualMachineConfiguration
         if (vmConfiguration == null)
         {
             vmConfiguration = new VirtualMachineConfiguration();
-            vmConfiguration.binaryPath = "C:\\Users\\ARVinfinity\\Documents\\HomeProjects\\SunnyOS\\Kernel\\bootloader.bin";
+            vmConfiguration.binaryPath = "";
             vmConfiguration.machine = "i386";
             vmConfiguration.commandLineOptions = "";
         }
