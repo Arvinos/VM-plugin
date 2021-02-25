@@ -1,9 +1,15 @@
 package Interface;
 
 import Services.VirtualMachineConfiguration;
+import com.intellij.openapi.fileChooser.FileChooserDescriptor;
+import com.intellij.openapi.fileChooser.FileChooserDialog;
+import com.intellij.openapi.fileChooser.FileChooserFactory;
+import com.intellij.openapi.project.Project;
+import com.intellij.openapi.project.ProjectManager;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.openapi.ui.ComboBox;
 import com.intellij.openapi.ui.Splitter;
+import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.ui.EditorTextField;
 import org.jdesktop.swingx.HorizontalLayout;
 import org.jdesktop.swingx.VerticalLayout;
@@ -13,7 +19,6 @@ import javax.annotation.Nullable;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Objects;
 
 public class ConfigurationDialogWindow extends DialogWrapper
@@ -118,7 +123,22 @@ public class ConfigurationDialogWindow extends DialogWrapper
         button.setPreferredSize(BUTTON_DEFAULT_SIZE);
         editor.setPreferredSize(EDIT_FIELD_DEFAULT_SIZE);
 
-        button.addActionListener(e -> editor.setText("Button clicked: " + new Date().getTime()));
+        button.addActionListener(e ->
+        {
+            Project project = ProjectManager.getInstance().getOpenProjects()[0];
+
+            FileChooserDescriptor fileChooserDescriptor = new FileChooserDescriptor(true,false,false,false,false,false);
+            FileChooserDialog fileChooser = FileChooserFactory
+                                            .getInstance()
+                                            .createFileChooser(fileChooserDescriptor, project, null);
+
+            final VirtualFile[] files = fileChooser.choose(project);
+            System.out.println(files.length);
+
+            if (files.length != 0) {
+                editor.setText(files[0].getPath());
+            }
+        });
 
         // Add UI components on the panel
         panel.add(label);
