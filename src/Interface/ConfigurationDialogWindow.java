@@ -23,10 +23,11 @@ public class ConfigurationDialogWindow extends DialogWrapper
 {
     private static int DEFAULT_HEIGHT      = 40;
     private static int DEFAULT_BUTTON_SIDE = DEFAULT_HEIGHT;
+    private static int DEFAULT_WIDTH       = 1000;
 
-    private static final Dimension PANELS_DEFAULT_SIZE     = new Dimension(500, DEFAULT_HEIGHT);
+    private static final Dimension PANELS_DEFAULT_SIZE     = new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT);
     private static final Dimension LABELS_DEFAULT_SIZE     = new Dimension(200, DEFAULT_HEIGHT);
-    private static final Dimension EDIT_FIELD_DEFAULT_SIZE = new Dimension(250, DEFAULT_HEIGHT);
+    private static final Dimension EDIT_FIELD_DEFAULT_SIZE = new Dimension(650, DEFAULT_HEIGHT);
     private static final Dimension COMBO_BOX_DEFAULT_SIZE  = new Dimension(150, DEFAULT_HEIGHT);
 
     private static final Dimension BUTTON_DEFAULT_SIZE     = new Dimension(DEFAULT_BUTTON_SIDE,
