@@ -1,5 +1,6 @@
 <idea-plugin>
   <id>com.your.company.unique.plugin.id</id>
+
   <name>Actions.LaunchVirtualMachineAction</name>
   <version>0.1.0</version>
   <vendor email="arv.infinity@gmail.com"
@@ -18,6 +19,7 @@
 
   <depends>com.intellij.modules.lang</depends>
   <depends>com.intellij.modules.platform</depends>
+
 
   <extensions defaultExtensionNs="com.intellij">
     <!-- сервис уровня проекта -->
