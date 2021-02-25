@@ -8,13 +8,13 @@ import java.awt.*;
 
 public class ErrorDialogWindow extends DialogWrapper
 {
-    private String m_errorMessage;
+    private final String m_errorMessage;
 
     public ErrorDialogWindow(String errorMessage) {
         super(true);
         init();
         setTitle("Error Occurred!");
-        m_errorMessage = new String(errorMessage);
+        m_errorMessage = errorMessage;
     }
 
     @Nullable

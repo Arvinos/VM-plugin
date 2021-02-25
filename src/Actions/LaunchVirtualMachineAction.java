@@ -5,11 +5,12 @@ import Interface.ErrorDialogWindow;
 import Services.VirtualMachineConfiguration;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
+import org.jetbrains.annotations.NotNull;
 
 public class LaunchVirtualMachineAction extends AnAction {
 
     @Override
-    public void actionPerformed(AnActionEvent e)
+    public void actionPerformed(@NotNull AnActionEvent e)
     {
         VirtualMachineConfiguration vmConfiguration = VirtualMachineConfiguration.getInstance();
         int emulatorStatus;

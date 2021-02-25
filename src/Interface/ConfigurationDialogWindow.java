@@ -1,29 +1,26 @@
 package Interface;
 
 import Services.VirtualMachineConfiguration;
-import com.intellij.openapi.components.ServiceManager;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.openapi.ui.ComboBox;
 import com.intellij.openapi.ui.Splitter;
 import com.intellij.ui.EditorTextField;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import org.jdesktop.swingx.HorizontalLayout;
 import org.jdesktop.swingx.VerticalLayout;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import javax.swing.*;
-import javax.xml.crypto.Data;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Objects;
 
 public class ConfigurationDialogWindow extends DialogWrapper
 {
-    private static int DEFAULT_HEIGHT      = 40;
-    private static int DEFAULT_BUTTON_SIDE = DEFAULT_HEIGHT;
-    private static int DEFAULT_WIDTH       = 1000;
+    private static final int DEFAULT_HEIGHT      = 40;
+    private static final int DEFAULT_BUTTON_SIDE = DEFAULT_HEIGHT;
+    private static final int DEFAULT_WIDTH       = 1000;
 
     private static final Dimension PANELS_DEFAULT_SIZE     = new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT);
     private static final Dimension LABELS_DEFAULT_SIZE     = new Dimension(200, DEFAULT_HEIGHT);
@@ -58,7 +55,7 @@ public class ConfigurationDialogWindow extends DialogWrapper
         machineList.add("arm");
         machineList.add("amd");
 
-        machines = new ComboBox<String>();
+        machines = new ComboBox<>();
 
         for(String machine: machineList) {
             machines.addItem(machine);
@@ -85,7 +82,7 @@ public class ConfigurationDialogWindow extends DialogWrapper
     {
         VirtualMachineConfiguration configuration = VirtualMachineConfiguration.getInstance();
 
-        configuration.setMachine(machines.getSelectedItem().toString());
+        configuration.setMachine(Objects.requireNonNull(machines.getSelectedItem()).toString());
         configuration.setBinaryPath(path.getText());
         configuration.setCommandLineOptions(arguments.getText());
 
@@ -121,9 +118,7 @@ public class ConfigurationDialogWindow extends DialogWrapper
         button.setPreferredSize(BUTTON_DEFAULT_SIZE);
         editor.setPreferredSize(EDIT_FIELD_DEFAULT_SIZE);
 
-        button.addActionListener(e -> {
-            editor.setText("Button clicked: " + new Date().getTime());
-        });
+        button.addActionListener(e -> editor.setText("Button clicked: " + new Date().getTime()));
 
         // Add UI components on the panel
         panel.add(label);

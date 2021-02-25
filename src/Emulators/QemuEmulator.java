@@ -6,11 +6,11 @@ public class QemuEmulator
 {
     private static final String cmd_separator = " ";
 
-    private String m_machineType;
+    private final String m_machineType;
 
     public QemuEmulator(String machineArchitecture)
     {
-        this.m_machineType = new String("qemu-system-" + machineArchitecture);
+        this.m_machineType = "qemu-system-" + machineArchitecture;
     }
 
     public int run(String binaryImagePath)
