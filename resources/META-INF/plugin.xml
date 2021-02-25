@@ -1,11 +1,11 @@
 <idea-plugin>
   <id>com.your.company.unique.plugin.id</id>
   <name>Actions.LaunchVirtualMachineAction</name>
-  <version>0.0</version>
+  <version>0.1.0</version>
   <vendor email="arv.infinity@gmail.com"
           url="https://github.com/Arvinos">Arvinos</vendor>
 
-  <description>Enter short description for your plugin here</description>
+  <description>Provides a simple interface to work under QEMU VM</description>
 
   <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
   <idea-version since-build="173.0"/>
@@ -22,7 +22,6 @@
   <extensions defaultExtensionNs="com.intellij">
     <!-- сервис уровня проекта -->
     <applicationService
-            serviceInterface="Services.VirtualMachineConfiguration"
             serviceImplementation="Services.VirtualMachineConfiguration">
     </applicationService>
   </extensions>
